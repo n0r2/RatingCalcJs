@@ -1,6 +1,6 @@
 /*
- *最終更新:2017/09/10 23:54
- *9月7日追加曲の定数を登録
+ *最終更新:2017/09/23 01:20
+ *9月21日追加曲のうち、Lv12以上３曲の定数を登録
  *汚いけどjs初心者なのでゆるしてね！
  *プロの方、「こここうしたほうがいい」とかあったら遠慮なく叩いてください
  *／人◕ ‿‿ ◕人＼ 僕と契約して、魔法少女になってよ!
@@ -219,6 +219,7 @@ const MUSIC = { //12+以上定数確定
   "414": ["We Gonna Party -Feline Groove Mix-", 13.3],
   "416": ["Through The Tower", 12.4],
   "417": ["Redo", 12.4],
+  "420": ["Now Loading!!!!", 12.3],
   "427": ["儚きもの人間", 12.5],
   "430": ["ＧＯ！ＧＯ！ラブリズム♥ ～あーりん書類審査通過記念Ver.～", 12.1],
   "432": ["光線チューニング", 12.3],
@@ -235,6 +236,8 @@ const MUSIC = { //12+以上定数確定
   "447": ["パーフェクト生命", 12.7],
   "448": ["のぼれ！すすめ！高い塔", 13.3],
   "449": ["害虫", 13.2],
+  "453": ["ガチャガチャきゅ～と・ふぃぎゅ@メイト", 12.5],
+  "455": ["Vampire", 12.6],
   "504": ["Calamity Fortune", 13.7],
   "525": ["Paradisus-Paradoxum", 12.4],
   "526": ["ようこそジャパリパークへ", 12.1],
@@ -267,14 +270,14 @@ function musicRating(lv, score) {
 };
 
 function createResultBox(text, result) {
-  var d = document.createElement('div');
-  d.classList.add('score_list');
   var left = document.createElement('div');
-  var right = document.createElement('div');
   left.classList.add('score_list_left');
   left.textContent = text;
+  var right = document.createElement('div');
   right.classList.add('score_list_right');
   right.textContent = result;
+  var d = document.createElement('div');
+  d.classList.add('score_list');
   d.appendChild(left);
   d.appendChild(right);
   return d;
