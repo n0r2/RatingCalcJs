@@ -283,6 +283,24 @@ function createResultBox(text, result) {
   return d;
 };
 
+function createTweetButton(a, b, c, d) {
+  hr = 'http://twitter.com/intent/tweet?text=＃ベスト枠計算するやつ%0a合計:%20' + a + '%0a平均:%20' + b + '%0a下限:%20' + c + '%0a到達可能:%20' +d+'%0ahttps://mharuna.net/ratingjs.html';
+  var left = document.createElement('div');
+  left.classList.add('score_list_left');
+  var right = document.createElement('div');
+  right.classList.add('score_list_right');
+  ad = document.createElement('a');
+  ad.href = hr;
+  ad.target = '_blank';
+  ad.innerHTML = 'Tweet';
+  right.appendChild(ad)
+  var d = document.createElement('div');
+  d.classList.add('score_list');
+  d.appendChild(left);
+  d.appendChild(right);
+  return d
+}
+
 var url = location.href;
 var ee = document.getElementsByClassName('w388 musiclist_box bg_master');
 if (url.indexOf('MusicGenre.html') == -1) {
@@ -357,10 +375,12 @@ for (var i = 0; i < ratingList.length; i++) {
   }
 }
 bestRating /= 100;
-
+avRating = Math.floor(bestRating / 30 * 100) / 100;
+minRating = ratingList[Math.min(29, ratingList.length - 1)]['rating'];
 toutatsu = (bestRating + ratingList[0]['rating'] * 10) / 40;
 toutatsu = Math.floor(toutatsu * 100) / 100
+narrow_block.appendChild(createTweetButton(bestRating, avRating, minRating, toutatsu));
 narrow_block.appendChild(createResultBox("合計", bestRating));
-narrow_block.appendChild(createResultBox("平均", Math.floor(bestRating / 30 * 100) / 100));
-narrow_block.appendChild(createResultBox("下限", ratingList[Math.min(29, ratingList.length - 1)]['rating']));
+narrow_block.appendChild(createResultBox("平均", avRating));
+narrow_block.appendChild(createResultBox("下限", minRating));
 narrow_block.appendChild(createResultBox("到達可能", toutatsu));
