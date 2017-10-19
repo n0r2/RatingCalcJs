@@ -1,6 +1,6 @@
 /*
- *最終更新:2017/10/08 09:19
- *Wake up Dreamer と Twice up Sceneryの譜面定数が逆になっていたので修正
+ *最終更新:2017/10/19 09:19
+ *10/19追加曲6曲の定数を登録
  *汚いけどjs初心者なのでゆるしてね！
  *プロの方、「こここうしたほうがいい」とかあったら遠慮なく叩いてください
  *／人◕ ‿‿ ◕人＼ 僕と契約して、魔法少女になってよ!
@@ -222,6 +222,7 @@ const MUSIC = { //12+以上定数確定
   "420": ["Now Loading!!!!", 12.3],
   "427": ["儚きもの人間", 12.5],
   "430": ["ＧＯ！ＧＯ！ラブリズム♥ ～あーりん書類審査通過記念Ver.～", 12.1],
+  "431": ["Session High⤴", 12.6],
   "432": ["光線チューニング", 12.3],
   "433": ["立川浄穢捕物帳", 13],
   "434": ["眠れぬ夜君を想フ", 13.3],
@@ -239,6 +240,10 @@ const MUSIC = { //12+以上定数確定
   "449": ["害虫", 13.2],
   "454": ["ガチャガチャきゅ～と・ふぃぎゅ@メイト", 12.5],
   "455": ["Vampire", 12.6],
+  "456": ["ケロ⑨destiny", 12.7],
+  "457": ["Last Moments", 12.5],
+  "458": ["風に乗せた願い", 12.8],
+  "459": ["天狗の落とし文 feat. ｙｔｒ", 12.4],
   "463": ["Wake up Dreamer", 12.6],
   "464": ["World Vanquisher", 14.1],
   "466": ["Iudicium", 13.7],
@@ -246,6 +251,7 @@ const MUSIC = { //12+以上定数確定
   "504": ["Calamity Fortune", 13.7],
   "525": ["Paradisus-Paradoxum", 12.4],
   "526": ["ようこそジャパリパークへ", 12.1],
+  "528": ["チルノのパーフェクトさんすう教室　⑨周年バージョン", 12.9],
   "537": ["ハレ晴レユカイ", 12.0],
   "538": ["AMAZING MIGHTYYYY!!!!", 13.8],
   "540": ["砂の惑星 feat. HATSUNE MIKU", 12.3]
@@ -289,7 +295,7 @@ function createResultBox(text, result) {
 };
 
 function createTweetButton(a, b, c, d) {
-  hr = 'http://twitter.com/intent/tweet?text=＃ベスト枠計算するやつ%0a合計:%20' + a + '%0a平均:%20' + b + '%0a下限:%20' + c + '%0a到達可能:%20' +d+'%0ahttps://mharuna.net/ratingjs.html';
+  hr = 'http://twitter.com/intent/tweet?text=＃ベスト枠計算するやつ%0a合計:%20' + a + '%0a平均:%20' + b + '%0a下限:%20' + c + '%0a到達可能:%20' + d + '%0ahttps://mharuna.net/ratingjs.html';
   var left = document.createElement('div');
   left.classList.add('score_list_left');
   var right = document.createElement('div');
@@ -364,7 +370,7 @@ for (var i = 0; i < e.length; i++) {
   });
 }
 
-ratingList.sort(function(a, b) {
+ratingList.sort(function (a, b) {
   if (a.rating > b.rating) return -1;
   if (a.rating < b.rating) return 1;
   return 0;
