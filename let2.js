@@ -52,6 +52,10 @@
     function get_user_id() {
         var user_id = 0;
         get_data('GET', 'FriendSearch.html').done(function (data) {
+            if($(data).find('#page_title').text() == 'エラー') {
+                alert('error');
+                aiueo();
+            }
             user_id = parseInt($(data).find('.mt_15').text().replace(/[^0-9^/.]/g, ""));
         })
         return user_id;
@@ -78,6 +82,7 @@
         console.log(submit_data);
         var response = submit(submit_data);
         console.timeEnd('timer1');
+        location.href = 'https://mharuna.net/';
     }
 
     start()
